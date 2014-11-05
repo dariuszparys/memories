@@ -1,0 +1,8 @@
+{
+  "name": "Erinnerungen",
+  "app_id": "",
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}
