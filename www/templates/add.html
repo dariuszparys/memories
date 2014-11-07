@@ -1,8 +1,23 @@
-<ion-view title="Browse">
+<ion-view title="Erinnerung hinzufügen" ng-controller="AddPageController as vm">
   <ion-nav-buttons side="left">
     <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
   <ion-content class="has-header">
-    <h1>Browse</h1>
+    <div class="list">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Begriff</span>
+        <input ng-model="vm.title" type="text" placeholder="Der Begriff zu deiner Erinnerung">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Wo</span>
+        <input ng-model="vm.place" type="text" placeholder="Der relevante Ort">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Anmerkung</span>
+        <input ng-model="vm.comment" type="text" placeholder="Was ist so besonders daran">
+      </label>
+      <button class="button button-block" ng-click="vm.add()">Hinzufügen</button>
+      <button class="button button-block" ng-click="vm.show()">Show</button>
+    </div>
   </ion-content>
 </ion-view>
