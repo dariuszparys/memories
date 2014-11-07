@@ -16,6 +16,10 @@
         <span class="input-label">Anmerkung</span>
         <input ng-model="vm.comment" type="text" placeholder="Was ist so besonders daran">
       </label>
+      <label class="item item-input item-stacked-label">
+          <span class="input-label">Foto</span>
+          <img ng-show="vm.isPictureAvailable" ng-src="{{vm.picture}}" />
+      </label>
       <button class="button button-block" ng-click="vm.add()">Hinzufügen</button>
       <button class="button button-block" ng-click="vm.show()">Show</button>
     </div>
