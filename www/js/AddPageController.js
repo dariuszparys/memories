@@ -1,29 +1,32 @@
 (function() {
 
-    function AddPageController($ionicActionSheet, $cameraWrapper) {
+    function AddPageController($ionicActionSheet, $cordovaCamera) {
         var vm = this;
-
-
+      
         vm.show = function() {
           
-          sheet = $ionicActionSheet.show({
+          $ionicActionSheet.show({
             buttons: [
               { text: "Ort per GPS ermitteln" },
               { text: "Foto hinzufügen" },
               { text: "Fotografieren" }
             ],
+            
             titleText: "Aktionen",
+            
             cancelText: "Abbrechen",
+            
             cancel: function() {
-              // do something
               return false;
             },
+            
             buttonClicked: function (index) {
 
                 var options = {
-                    quality: 75,
-                    destinationType: Camera.DestinationType.DATA_URL,
-                    allowEdit: true,
+                    quality : 75,
+                    destinationType : Camera.DestinationType.DATA_URL,
+                    sourceType : Camera.PictureSourceType.CAMERA,
+                    allowEdit : true,
                     encodingType: Camera.EncodingType.JPEG,
                     targetWidth: 100,
                     targetHeight: 100,
@@ -38,9 +41,11 @@
                     case 2:
                         options.sourceType = Camera.PictureSourceType.CAMERA;
                         break;
+                    default:
+                      break;
                 }
 
-                $cameraWrapper.takePicture(options).then(function (imageData) {
+                $cordovaCamera.getPicture(options).then(function (imageData) {
                     vm.picture = "data:image/jpeg;base64," + imageData;
                     vm.isPictureAvailable = true;
                 });
@@ -55,13 +60,13 @@
         vm.isPictureAvailable = false;
       
         vm.add = function() {
-          
+          alert("works");
         };
         
     }
 
     angular
-        .module("starter")
+        .module("memories")
         .controller("AddPageController", AddPageController);
 
 })();

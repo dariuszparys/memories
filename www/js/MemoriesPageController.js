@@ -14,7 +14,7 @@
     }
 
     angular
-        .module("starter")
+        .module("memories")
         .controller("MemoriesPageController", MemoriesPageController);
 
 })();
