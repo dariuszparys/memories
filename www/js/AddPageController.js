@@ -1,6 +1,6 @@
 (function() {
 
-    function AddPageController($ionicActionSheet, $cordovaCamera) {
+    function AddPageController($ionicActionSheet, $cordovaCamera, DataService) {
         var vm = this;
       
         vm.show = function() {
@@ -23,13 +23,13 @@
             buttonClicked: function (index) {
 
                 var options = {
-                    quality : 75,
+                    quality : 100,
                     destinationType : Camera.DestinationType.DATA_URL,
                     sourceType : Camera.PictureSourceType.CAMERA,
                     allowEdit : true,
                     encodingType: Camera.EncodingType.JPEG,
-                    targetWidth: 100,
-                    targetHeight: 100,
+                    targetWidth: 240,
+                    targetHeight: 320,
                     popoverOptions: CameraPopoverOptions,
                     saveToPhotoAlbum: false
                 };
@@ -60,7 +60,7 @@
         vm.isPictureAvailable = false;
       
         vm.add = function() {
-          alert("works");
+            DataService.addMemory(vm.title, vm.picture);
         };
         
     }

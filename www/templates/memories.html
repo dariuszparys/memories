@@ -5,7 +5,7 @@
   <ion-content padding="true" class="has-header">
     <div class="list card" ng-repeat="memory in vm.memories">
       <a class="item item-thumbnail-left" href="#/app/memories/{{memory.id}}">        
-        <img src="#">
+        <img src="{{memory.image}}">
         <h2>{{memory.title}}</h2>
         <p>Some text here...</p>
       </a>
